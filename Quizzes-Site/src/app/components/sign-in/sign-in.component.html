@@ -1,0 +1,40 @@
+<p>sign-in works!</p>
+<style>
+    a{
+        color: blue;
+    }
+
+    a[href$='zip']{
+        color: red;
+    }
+</style>
+
+<body>
+    <ul>
+        <li><a href="http://assafmedia.co.il">link 1</a></li>
+        <li><a href="http://assafmedia.co.il">link 2</a></li>
+        <li><a href="http://assafmedia.co.il">link 3</a></li>
+        <li><a href="http://assafmedia.co.il">link 4</a></li>
+        <li><a href="http://mako.co.il">link 5</a></li>
+    </ul>
+
+    <script src="jquery.min.js"></script>
+
+    <script>
+        var arr = [];
+        var i = 0;
+
+        $("a").each(function(){
+            var href= $(this).attr("href");
+            if(!href.includes("mako")){
+                arr[i] = href;
+            }
+        });
+
+        const random = Math.floor(Math.random() * arr.length);
+
+        $(window).on("load", function(){
+            alert(arr[random]);
+        });
+    </script>
+</body>
